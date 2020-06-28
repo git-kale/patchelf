@@ -327,7 +327,7 @@ static FileContents readFile(std::string fileName,
     size_t size = std::min(cutOff, (size_t) st.st_size);
 
     FileContents contents = std::make_shared<std::vector<unsigned char>>();
-    contents->reserve(size + 32 * 1024 * 1024);
+    contents->reserve(size + 256 * 1024 * 1024);
     contents->resize(size, 0);
 
     int fd = open(fileName.c_str(), O_RDONLY);
